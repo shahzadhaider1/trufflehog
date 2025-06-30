@@ -144,6 +144,17 @@ func New(c common.Common, keyType string) *AnalyzeForm {
 			Required:    true,
 			RedactInput: true,
 		}}
+	case "salesforce":
+		inputs = []textinputs.InputConfig{{
+			Label:    "Domain",
+			Key:      "domain",
+			Required: true,
+		}, {
+			Label:       "Access Token",
+			Key:         "token",
+			Required:    true,
+			RedactInput: true,
+		}}
 	default:
 		inputs = []textinputs.InputConfig{{
 			Label:       "Secret",

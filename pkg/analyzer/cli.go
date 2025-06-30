@@ -41,6 +41,7 @@ import (
 	"github.com/trufflesecurity/trufflehog/v3/pkg/analyzer/analyzers/posthog"
 	"github.com/trufflesecurity/trufflehog/v3/pkg/analyzer/analyzers/postman"
 	"github.com/trufflesecurity/trufflehog/v3/pkg/analyzer/analyzers/privatekey"
+	"github.com/trufflesecurity/trufflehog/v3/pkg/analyzer/analyzers/salesforce"
 	"github.com/trufflesecurity/trufflehog/v3/pkg/analyzer/analyzers/sendgrid"
 	"github.com/trufflesecurity/trufflehog/v3/pkg/analyzer/analyzers/shopify"
 	"github.com/trufflesecurity/trufflehog/v3/pkg/analyzer/analyzers/slack"
@@ -151,5 +152,7 @@ func Run(keyType string, secretInfo SecretInfo) {
 		databricks.AnalyzeAndPrintPermissions(secretInfo.Cfg, secretInfo.Parts["domain"], secretInfo.Parts["token"])
 	case "jira":
 		jira.AnalyzeAndPrintPermissions(secretInfo.Cfg, secretInfo.Parts["domain"], secretInfo.Parts["email"], secretInfo.Parts["token"])
+	case "salesforce":
+		salesforce.AnalyzeAndPrintPermissions(secretInfo.Cfg, secretInfo.Parts["domain"], secretInfo.Parts["token"])
 	}
 }
